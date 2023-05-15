@@ -8,7 +8,7 @@
     <meta property="og:image:type" content="image/svg+xml" />
     <meta
       property="og:image"
-      content="https://wiki.swaponline.io/assets/swaponline_io.svg"
+      content="https://swaponline.github.io/swap_logo_256.svg"
     />
     <meta http-equiv="refresh" content="3600">
     <link
@@ -537,7 +537,7 @@
           </div>
           <div class="starter-modal__btn-container">
             <button id="preloaderRestoreBtn" class="starter-modal__btn starter-modal__btn_skip">
-              Restore from 12-word seed
+              Restore Wallet
             </button> 
           </div>
           <div class="starter-modal__link-container">
@@ -981,7 +981,7 @@
         window.location.hostname === "swaponline.io"
       ) {
         // used by Loader component
-        window.loaderLogoUrl = "https://wiki.swaponline.io/assets/swaponline_io.svg";
+        window.loaderLogoUrl = "https://swaponline.github.io/swap_logo_256.svg";
         document.getElementById("loaderImg").src = window.loaderLogoUrl;
       } else {
         if (window.logoUrl != '#') {
@@ -994,7 +994,7 @@
 
 
       /* Google Analytics */
-      const isMainDomain = window.location.hostname === 'swaponline.io';
+      const isMainDomain = window.location.hostname === 'insertyourdomainhere.io';
       const isExtension =
         window.location.hostname === 'jbhhiineefefhcaoocmnkbmgfjbhninc';
 
@@ -1003,7 +1003,7 @@
         var gtagId;
 
         if (isMainDomain) {
-          gtagId = 'UA-116857031-2';
+          gtagId = 'UA-116857031-2'; 
         }
 
         if (isExtension) {

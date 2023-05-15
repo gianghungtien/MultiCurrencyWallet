@@ -252,12 +252,13 @@ class Row extends Component<RowProps, RowState> {
 
   handleReceive = () => {
     const {
-      itemData: { currency, address },
+      itemData: { currency, address, standard, tokenKey },
     } = this.props
 
     actions.modals.open(constants.modals.ReceiveModal, {
-      currency,
+      currency: (tokenKey || currency),
       address,
+      standard,
     })
   }
 
@@ -412,7 +413,7 @@ class Row extends Component<RowProps, RowState> {
   }
 
   handleShowMnemonic = () => {
-    actions.modals.open(constants.modals.SaveMnemonicModal)
+    actions.modals.open(constants.modals.SaveWalletSelectMethod)
   }
 
   connectMetamask = () => {
