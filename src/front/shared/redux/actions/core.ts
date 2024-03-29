@@ -474,8 +474,10 @@ const getWallets = (options: IUniversalObj = {}) => {
       avaxData,
       movrData,
       oneData,
+      phi_v1Data,
       phiData,
-      phi_v2Data,
+      fkwData,
+      phpxData,
       ameData,
       tokensData,
       metamaskData,
@@ -515,8 +517,10 @@ const getWallets = (options: IUniversalObj = {}) => {
       || enabledCurrencies.avax
       || enabledCurrencies.movr
       || enabledCurrencies.one
+      || enabledCurrencies.phi_v1
       || enabledCurrencies.phi
-      || enabledCurrencies.phi_v2
+      || enabledCurrencies.fkw
+      || enabledCurrencies.phpx
       || enabledCurrencies.ame
         ? metamaskData
           ? [metamaskData]
@@ -619,6 +623,14 @@ const getWallets = (options: IUniversalObj = {}) => {
         : [aurethData]
       : []),
     // =====================================
+    ...(!enabledCurrencies || enabledCurrencies.phi_v1
+      ? metamaskConnected
+        ? withInternal
+          ? [phi_v1Data]
+          : []
+        : [phi_v1Data]
+      : []),
+    // =====================================
     ...(!enabledCurrencies || enabledCurrencies.phi
       ? metamaskConnected
         ? withInternal
@@ -627,12 +639,20 @@ const getWallets = (options: IUniversalObj = {}) => {
         : [phiData]
       : []),
     // =====================================
-    ...(!enabledCurrencies || enabledCurrencies.phi_v2
+    ...(!enabledCurrencies || enabledCurrencies.fkw
       ? metamaskConnected
         ? withInternal
-          ? [phi_v2Data]
+          ? [fkwData]
           : []
-        : [phi_v2Data]
+        : [fkwData]
+      : []),
+    // =====================================
+    ...(!enabledCurrencies || enabledCurrencies.phpx
+      ? metamaskConnected
+        ? withInternal
+          ? [phpxData]
+          : []
+        : [phpxData]
       : []),
     // =====================================
     ...(!enabledCurrencies || enabledCurrencies.ame

@@ -15,7 +15,8 @@ export const WrapperCurrency = {
   1313161554: '0xc9bdeed33cd01541e1eed10f90519d2c06fe3feb',
   4181: '0xb61d26717dbd2ea6ebf4fadae02a28782f86864c',
   180: '0xCc9bD40124EfedF6F198B8b5b50697dC635FaaC4',
-  144: '0x587fe3Fdb7EcD6b134E1556A3Cd083ccF6e7f1B8', // phi-v2
+  144: '0x1278e0AdBc93291A54384594A9c27Da9f5890a9F', // phi-v2
+  40821: '0x325A2531D28e22D37935B65bd718D1244968dAae', // Fokawa (FKW)
   // testnet
   4: '0xc778417e063141139fce010982780140aa0cd5ab',
   97: '0xae13d989dac2f0debff460ac112a837c89baa7cd',
@@ -28,6 +29,9 @@ export const WrapperCurrency = {
   421611: '',
   1666700000: '',
   1313161556: '',
+  
+  52767: '0x87a6417F03E106A05698F18829bB3a40CBC54f61', // PHPx Mainnet Wrapped
+  
 }
 
 export default {

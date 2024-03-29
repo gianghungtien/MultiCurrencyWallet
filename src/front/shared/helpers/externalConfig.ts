@@ -34,6 +34,7 @@ const externalConfig = () => {
 
   config.opts = {
     inited: true,
+    hasWalletConnect: true,
     curEnabled: {
       eth: true,
       bnb: true,
@@ -46,8 +47,10 @@ const externalConfig = () => {
       movr: true,
       one: true,
       ame: true,
+      phi_v1: true,
       phi: true,
-      phi_v2: true,
+      fkw: true,
+      phpx: true,
       btc: true,
       ghost: true,
       next: false,
@@ -65,8 +68,10 @@ const externalConfig = () => {
       movr: false,
       one: false,
       ame: false,
+      phi_v1: false,
       phi: false,
-      phi_v2: false,
+      fkw: false,
+      phpx: false,
       ghost: true,
       next: false,
     },
@@ -132,6 +137,18 @@ const externalConfig = () => {
         after: []
       },
     },
+  }
+
+  // WalletConnect custom ProjectID 
+  if (window
+    && window.SO_WalletConnectProjectId
+  ) {
+    config.api.WalletConnectProjectId = window.SO_WalletConnectProjectId
+  }
+  if (window
+    && window.SO_WalletConnectDisabled
+  ) {
+    config.opts.hasWalletConnect = false
   }
 
   if (window
@@ -264,8 +281,10 @@ const externalConfig = () => {
     CUR_ONE_DISABLED: `one`,
     CUR_AME_DISABLED: `ame`,
     CUR_AURORA_DISABLED: `aureth`,
-    CUR_PHI_DISABLED: `phi`,
-    CUR_PHI_V2_DISABLED: `phi_v2`,
+    CUR_PHI_DISABLED: `phi_v1`,
+    CUR_PHI_V2_DISABLED: `phi`,
+    CUR_FKW_DISABLED: 'fkw',
+    CUR_PHPX_DISABLED: 'phpx',
   }
   if (window) {
     Object.keys(wpCurrencyDisabledFlages).forEach((windowFlagKey) => {

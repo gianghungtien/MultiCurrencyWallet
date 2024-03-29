@@ -10,6 +10,8 @@ export default {
   one_provider: 'https://api.s0.b.hmny.io',
   ame_provider: 'https://testnet.amechain.io',
   aurora_provider: 'https://betanet.aurora.dev',
+  phi_v1_provider: '',
   phi_provider: '',
-  phi_v2_provider: '',
+  fkw_provider: '',
+  phpx_provider: 'https://rpc.phpx.network',
 }

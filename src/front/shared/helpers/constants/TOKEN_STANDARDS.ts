@@ -112,6 +112,16 @@ const STANDARDS = {
     explorerApiKey: config.api.aurora_ApiKey,
     hasSupportAtomicSwap: false,
   },
+  phi20_v1: {
+    platform: '',
+    platformKey: '',
+    standard: 'phi20_v1',
+    value: 'phi20_v1',
+    currency: 'phi_v1',
+    explorerApi: config.api?.aurorascan || '', // ???
+    explorerApiKey: config.api?.phi_ApiKey || '', // ???
+    hasSupportAtomicSwap: false,
+  },
   phi20: {
     platform: '',
     platformKey: '',
@@ -122,14 +132,24 @@ const STANDARDS = {
     explorerApiKey: config.api?.phi_ApiKey || '', // ???
     hasSupportAtomicSwap: false,
   },
-  phi20_v2: {
+  fkw20: {
     platform: '',
     platformKey: '',
-    standard: 'phi20_v2',
-    value: 'phi20_v2',
-    currency: 'phi_v2',
-    explorerApi: config.api?.aurorascan || '', // ???
-    explorerApiKey: config.api?.phi_ApiKey || '', // ???
+    standard: 'fkw20',
+    value: 'fkw20',
+    currency: 'fkw',
+    explorerApi: config.api?.fkwscan || '', // ???
+    explorerApiKey: config.api?.fkwscan_api || '', // ???
+    hasSupportAtomicSwap: false,
+  },
+  phpx20: {
+    platform: '',
+    platformKey: '',
+    standard: 'phpx20',
+    value: 'phpx20',
+    currency: 'phpx',
+    explorerApi: config.api?.phpxscan || '', // ???
+    explorerApiKey: config.api?.phpxscan_api || '', // ???
     hasSupportAtomicSwap: false,
   },
 }

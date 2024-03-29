@@ -8,7 +8,7 @@ const getTokenBaseCurrency = (tokenKey) => {
   const baseTokenCurrencyPrefix = tokenKey.match(baseCurrencyRegExp)
 
   if (baseTokenCurrencyPrefix) {
-    const baseTokenCurrency = baseTokenCurrencyPrefix[0].match(/[a-z]+/)
+    const baseTokenCurrency = baseTokenCurrencyPrefix[0].match(/[a-z1-2_]+/)
     const constantCurrency =
       baseTokenCurrency && BASE_TOKEN_CURRENCY[baseTokenCurrency[0].toUpperCase()]
 
@@ -26,7 +26,6 @@ const getTxRouter = (currency, txHash) => {
   }
 
   const prefix = helpers.getCurrencyKey(currency, false)
-
   if (actions[prefix]?.getTxRouter) {
     return actions[prefix].getTxRouter(txHash, currency.toLowerCase())
   }
@@ -77,12 +76,18 @@ const getLink = (currency, txHash) => {
     return actions.erc20aurora.getLinkToInfo(txHash)
   }
 
+  if (isToken('phi20_v1', currency)) {
+    return actions.phi20_v1.getLinkToInfo(txHash)
+  }
+
   if (isToken('phi20', currency)) {
     return actions.phi20.getLinkToInfo(txHash)
   }
-
-  if (isToken('phi20_v2', currency)) {
-    return actions.phi20_v2.getLinkToInfo(txHash)
+  if (isToken('fkw20', currency)) {
+    return actions.fkw20.getLinkToInfo(txHash)
+  }
+  if (isToken('phpx20', currency)) {
+    return actions.phpx20.getLinkToInfo(txHash)
   }
 
   const prefix = helpers.getCurrencyKey(currency, false)
@@ -142,13 +147,22 @@ const getInfo = (currency, txRaw): GetInfoResult => {
     reduxAction = `erc20aurora`
   }
 
+  if (isToken('phi20_v1', currency)) {
+    reduxAction = `phi20_v1`
+  }
+
   if (isToken('phi20', currency)) {
     reduxAction = `phi20`
   }
 
-  if (isToken('phi20_v2', currency)) {
-    reduxAction = `phi20_v2`
+  if (isToken('fkw20', currency)) {
+    reduxAction = `fkw20`
   }
+  
+  if (isToken('phpx20', currency)) {
+    reduxAction = `phpx20`
+  }
+  
 
   const info = {
     tx: '',

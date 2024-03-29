@@ -95,6 +95,14 @@ export const initialState = {
     balanceError: null,
     infoAboutCurrency: null,
   },
+  phi_v1Data: {
+    balance: 0,
+    isBalanceFetched: false,
+    currency: 'PHI_V1',
+    fullName: 'PHI_V1',
+    balanceError: null,
+    infoAboutCurrency: null,
+  },
   phiData: {
     balance: 0,
     isBalanceFetched: false,
@@ -103,11 +111,19 @@ export const initialState = {
     balanceError: null,
     infoAboutCurrency: null,
   },
-  phi_v2Data: {
+  fkwData: {
     balance: 0,
     isBalanceFetched: false,
-    currency: 'PHI_V2',
-    fullName: 'PHI_V2',
+    currency: 'FKW',
+    fullName: 'FKW',
+    balanceError: null,
+    infoAboutCurrency: null,
+  },
+  phpxData: {
+    balance: 0,
+    isBalanceFetched: false,
+    currency: 'PHPX',
+    fullName: 'PHPX',
     balanceError: null,
     infoAboutCurrency: null,
   },

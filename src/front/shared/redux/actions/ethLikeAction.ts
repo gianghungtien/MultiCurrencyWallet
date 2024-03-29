@@ -584,12 +584,17 @@ class EthLikeAction {
 
     const Web3 = this.getCurrentWeb3()
 
-    const codeAtAddress = await Web3.eth.getCode(address)
-    const codeIsEmpty = !codeAtAddress || codeAtAddress === '0x' || codeAtAddress === '0x0'
+    try {
+      const codeAtAddress = await Web3.eth.getCode(address)
 
-    contractsList[lowerAddress] = !codeIsEmpty
+      const codeIsEmpty = !codeAtAddress || codeAtAddress === '0x' || codeAtAddress === '0x0'
 
-    return !codeIsEmpty
+      contractsList[lowerAddress] = !codeIsEmpty
+
+      return !codeIsEmpty
+    } catch (err) {
+      return false
+    }
   }
 }
 
@@ -697,25 +702,45 @@ export default {
     adminFeeObj: externalConfig.opts?.fee?.aureth,
     web3: new Web3(providers.aurora_provider),
   }),
+  PHI_V1: new EthLikeAction({
+    coinName: 'PHI_V1',
+    ticker: 'PHI_V1',
+    chainId: externalConfig.evmNetworks.PHI_V1.chainId,
+    explorerApiName: ``, // нет апи - пустой список транзакций
+    explorerApiKey: externalConfig.api?.phi_ApiKey,
+    explorerLink: externalConfig.link.phi_v1Explorer,
+    adminFeeObj: externalConfig.opts?.fee?.phi_v1,
+    web3: new Web3(providers.phi_v1_provider),
+  }),
   PHI: new EthLikeAction({
     coinName: 'PHI',
     ticker: 'PHI',
     chainId: externalConfig.evmNetworks.PHI.chainId,
-    explorerApiName: ``, // нет апи - пустой список транзакций
-    explorerApiKey: externalConfig.api?.phi_ApiKey,
-    explorerLink: externalConfig.link.phiExplorer,
+    explorerApiName: 'phiscan', // ???
+    explorerApiKey: 'not_needed_apikey',
+    explorerLink: externalConfig.link.phi_Explorer,
     adminFeeObj: externalConfig.opts?.fee?.phi,
     web3: new Web3(providers.phi_provider),
   }),
-  PHI_V2: new EthLikeAction({
-    coinName: 'PHI_V2',
-    ticker: 'PHI_V2',
-    chainId: externalConfig.evmNetworks.PHI_V2.chainId,
-    explorerApiName: 'phiscan', // ???
-    explorerApiKey: externalConfig.api?.phi_ApiKey,
-    explorerLink: externalConfig.link.phi_v2Explorer,
-    adminFeeObj: externalConfig.opts?.fee?.phi_v2,
-    web3: new Web3(providers.phi_v2_provider),
+  FKW: new EthLikeAction({
+    coinName: 'FKW',
+    ticker: 'FKW',
+    chainId: externalConfig.evmNetworks.FKW.chainId,
+    explorerApiName: 'fkwscan', // ???
+    explorerApiKey: 'api-no-key',
+    explorerLink: externalConfig.link.fkw_Explorer,
+    adminFeeObj: externalConfig.opts?.fee?.fkw,
+    web3: new Web3(providers.fkw_provider),
+  }),
+  PHPX: new EthLikeAction({
+    coinName: 'PHPX',
+    ticker: 'PHPX',
+    chainId: externalConfig.evmNetworks.PHPX.chainId,
+    explorerApiName: 'phpxscan',
+    explorerApiKey: 'api-no-key',
+    explorerLink: externalConfig.link.phpx_Explorer,
+    adminFeeObj: externalConfig.opts?.fee?.phpx,
+    web3: new Web3(providers.phpx_provider),
   }),
   AME: new EthLikeAction({
     coinName: 'AME',

@@ -8,8 +8,8 @@ export default [
   'matic',
   'arbeth',
   'aureth',
+  'phi_v1',
   'phi',
-  'phi_v2',
   'xdai',
   'ftm',
   'avax',
@@ -19,4 +19,6 @@ export default [
   'btc',
   'ghost',
   'next',
+  'fkw',
+  'phpx',
 ]
